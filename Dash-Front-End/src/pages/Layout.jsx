@@ -45,7 +45,7 @@ export default function Layout() {
       <div className={`sidebar ${isSidebarOpen ? "slide-in" : "slide-out"}`}>
         <Sidebar isSidebarOpen={isSidebarOpen} toogleSidebar={handleSidebarToggle} />
       </div>
-      <div className="main-content">Main Content</div>
+      <div className={`main-content ${isSidebarOpen ? "slide-in" : "slide-out"}`}>Main Content</div>
     </div>
   );
 }
