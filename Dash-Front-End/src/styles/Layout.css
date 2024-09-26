@@ -25,11 +25,13 @@
   -moz-user-select: none; /* Pour Firefox */
   -ms-user-select: none; /* Pour Internet Explorer/Edge */
   user-select: none; /* Empêche la sélection du texte */
+  outline: none;
+  border: none;
 }
 .sidebar {
+  /*partie grid layout */
   grid-area: sidebar;
   width: 210px;
-  background-color: #00adb5;
   height: 100vh; /* Prend toute la hauteur du côté gauche */
   position: fixed; /* Sidebar fixe */
   top: 0;
@@ -38,8 +40,62 @@
   -moz-user-select: none; /* Pour Firefox */
   -ms-user-select: none; /* Pour Internet Explorer/Edge */
   user-select: none; /* Empêche la sélection du texte */
+  transform: translateX(0); /* Sidebar cachée par défaut */
+  transition: transform 0.5s ease-in; /* Pour animer la transition de contenu */
+  /*partie design sidebar*/
+  border-top-right-radius: 10px;
+    background-color: #fff7f7;
+    padding-top: 1.35vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 1.35vh;
+    display: grid;
+    grid-template-rows: 5.655vh 1fr auto;
+    grid-template-areas:
+    "menubt"
+    "categories"
+    "fixed-categories";
+}
+.sidebar.slide-in {
+  animation: slideIn 0.5s forwards; /* Animation pour faire apparaître la sidebar */
+}
+
+.sidebar.slide-out {
+  animation: slideOut 0.5s forwards; /* Animation pour faire disparaître la sidebar */
+}
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-211px); /* Position initiale de la sidebar hors de l'écran */
   }
-  
+  50%{
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* Position finale de la sidebar visible */
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0); /* Position initiale de la sidebar visible */
+  }
+  50%{
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-211px); /* Position finale de la sidebar hors de l'écran */
+  }
+}
+  .LogoDjezzy {
+    position: absolute;
+    top: 0.85vh;
+    left: 55px;
+    z-index: 1;
+  }
   .main-content {
     width: 100%;
     grid-area: main-content;

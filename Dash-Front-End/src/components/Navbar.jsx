@@ -39,7 +39,7 @@ export default function Navbar({toogleSidebar,isSidebarOpen}) {
               <img
                 src="/assets/Menu.svg"
                 alt="menu"
-                style={{ width: "25px", height: "25px" }}
+                style={{ width: "3.6vh", height: "3.6vh" }}
               />
         </div>
         <div className="navbarProfile">
