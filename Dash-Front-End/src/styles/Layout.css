@@ -100,7 +100,6 @@
   .main-content {
     width: 100%;
     grid-area: main-content;
-    background-color: #393e46;
     animation: width 0.5s ease-in;
     /* margin-left: 260px; Compense la largeur de la sidebar */
   }
