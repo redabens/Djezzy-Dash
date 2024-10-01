@@ -1,10 +1,10 @@
-import "../styles/WhiteLogo.css";
+import "../styles/LogoLogin.css";
 function WhiteLogo() {
   return (
     <div className="WhiteLogoWithName">
       <img
         className="Whitelogo"
-        src="/assets/logo_djezzy_whiteVersion.svg"
+        src="/assets/logo_djezzy.svg"
         alt="logo_djezzy"
       />
       <div className="WhiteNom">
