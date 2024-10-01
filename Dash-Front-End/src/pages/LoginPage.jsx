@@ -33,6 +33,9 @@ export default function LoginPage(){
     const handleError = async ()=>{
 
     }
+    const handleTooglePassword = ()=>{
+        setShowPassword(!showPassword);
+    }
     return (
         <div className="login-page">
             <div className="login-form">
@@ -42,35 +45,34 @@ export default function LoginPage(){
                 <div className="formLogin">
                     <form onSubmit={handleSubmit(handleLogin, handleError)}>   
                         <div className="field">
-                            <label htmlFor="username">Nom d'utilisateur:</label>
-                            <input
-                              name="username"
-                              type="text"
-                              placeholder="saisir le nom d'utilisateur..."
-                              {...register("username", registerOptions.username)}
-                            />
-                            <small className="text-danger">
-                              {errors?.username && errors.username.message}
-                            </small>
+                          <label htmlFor="username">Nom d'utilisateur:</label>
+                          <input
+                            name="username"
+                            type="text"
+                            placeholder="saisir le nom d'utilisateur..."
+                            {...register("username", registerOptions.username)}
+                          />
+                          <small className="text-danger">
+                            {errors?.username && errors.username.message}
+                          </small>
                         </div>
                         <div className="field">
-                            <label htmlFor="password">Mot de passe:</label>
-                            <div className="password-field">
-                              <input
-                                name="password"
-                                type={showPassword ? "text": "password"}
-                                placeholder="saisir le mot de passe..."
-                                style={{outline:'none',border:'none',height:'100%'}}
-                                {...register("password", registerOptions.password)}
-                              />
-                              {showPassword ? (<img src="/assets/oeilFerme.svg" alt="oeil_icon" />):(<img src="/assets/oeilOuvert.svg" alt="oeil_icon" />)}
-                            </div>
-                            <small className="text-danger">
-                              {errors?.password && errors.password.message}
-                            </small>
-                        </div>
-                        <div className="mdps-oublie">
-                          <p>Mot de passe oublié?</p>
+                          <label htmlFor="password">Mot de passe:</label>
+                          <div className="password-field">
+                            <input
+                              name="password"
+                              type={showPassword ? "text": "password"}
+                              placeholder="saisir le mot de passe..."
+                              {...register("password", registerOptions.password)}
+                            />
+                            {showPassword ? (<img src="/assets/oeilFerme.svg" alt="oeil_icon" style={{width:'22px',height:'22px'}} onClick={handleTooglePassword}/>):(<img src="/assets/oeilOuvert.svg" alt="oeil_icon" style={{width:'22px',height:'22px'}} onClick={handleTooglePassword}/>)}
+                          </div>
+                          <small className="text-danger">
+                            {errors?.password && errors.password.message}
+                          </small>
+                          <div className="mdps-oublie">
+                            <p>Mot de passe oublié?</p>
+                          </div>
                         </div>
                         <button type="submit">Connectez-vous maintenant</button>
                     </form>

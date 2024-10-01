@@ -1,32 +1,79 @@
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 .login-page{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
 }
 .login-form{
-    width: 25%;
-    height: 60%;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f8cece;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 25%;
+  height: 60%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(248, 206, 206,0.5);
+  border-radius: 10px;
+  grid-gap: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .logo-djezzy{
-    grid-row: 1;
+  grid-row: 1;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .formLogin{
-    grid-row: 2/3;
+  width: 100%;
+  height: 100%;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+form{
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+form input{
+  outline: none;
+  border: none;
+  height: 30px;
+  padding-left: 8px;
+  border-radius: 4px;
+  width: auto;  
+}
+.field{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  label{
+    padding-left: 10px;
+  }
+}
+.password-field{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  background-color: white;
+  padding-right: 5px;
+  border-radius: 4px;
 }
 /* --------------------------- */
 form button {
+  width: 70%;
   color: white;
   background-color: #a13c3c;
   border-radius: 4px;
@@ -35,22 +82,18 @@ form button {
   font-family: "Montserrat", sans-serif !important;
   font-weight: 600;
 }
-  small {
-    color: red;
-    font-size: 0.7em;
-  }
-  .mdps-oublie p {
-    display: flex;
-    justify-content: end;
-    font-size: 0.6em;
-    text-decoration: underline;
-    color: #a13c3c;
-    padding-top: 10px;
-  }
-  .password-field{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: white;
-  }
+small {
+  color: red;
+  font-size: 0.7em;
+}
+.mdps-oublie p {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: start;
+  font-size: 0.6em;
+  text-decoration: underline;
+  color: #a13c3c;
+  padding-top: 10px;
+}
   
