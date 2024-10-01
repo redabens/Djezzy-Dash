@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import LogoDjezzy from "../components/LogoDjezzy";
 import "../styles/Layout.css";
+import Dashboard from "./Dashboard";
 
 export default function Layout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); // État pour contrôler l'ouverture/fermeture de la sidebar
@@ -35,17 +36,30 @@ export default function Layout() {
   };
 
   return (
-    <div ref={gridcontainerRef} className={`grid-container ${isSidebarOpen ? "grid-open" : "grid-close"}`}>
+    <div
+      ref={gridcontainerRef}
+      className={`grid-container ${isSidebarOpen ? "grid-open" : "grid-close"}`}
+    >
       <div className="header">
-        <Navbar isSidebarOpen={isSidebarOpen} toogleSidebar={handleSidebarToggle} />
+        <Navbar
+          isSidebarOpen={isSidebarOpen}
+          toogleSidebar={handleSidebarToggle}
+        />
       </div>
       <div className="LogoDjezzy">
         <LogoDjezzy rotating={rotating} />
       </div>
       <div className={`sidebar ${isSidebarOpen ? "slide-in" : "slide-out"}`}>
-        <Sidebar isSidebarOpen={isSidebarOpen} toogleSidebar={handleSidebarToggle} />
+        <Sidebar
+          isSidebarOpen={isSidebarOpen}
+          toogleSidebar={handleSidebarToggle}
+        />
       </div>
-      <div className={`main-content ${isSidebarOpen ? "slide-in" : "slide-out"}`}>Main Content</div>
+      <div
+        className={`main-content ${isSidebarOpen ? "slide-in" : "slide-out"}`}
+      >
+        <Dashboard />
+      </div>
     </div>
   );
 }
