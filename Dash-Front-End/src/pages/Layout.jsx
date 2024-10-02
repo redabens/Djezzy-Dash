@@ -59,7 +59,7 @@ export default function Layout() {
       <div
         className={`main-content ${isSidebarOpen ? "slide-in" : "slide-out"}`}
       >
-        <Dashboard />
+        {/* <Dashboard /> */}
       </div>
       <div className={`main-content ${isSidebarOpen ? "slide-in" : "slide-out"}`}><Graph1 /></div>
     </div>

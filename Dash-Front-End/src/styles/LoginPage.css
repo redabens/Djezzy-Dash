@@ -1,26 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-.login-page{
+.login-page {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #241c85;
 }
-.login-form{
+.login-form {
   width: 25%;
   height: 60%;
   display: grid;
   grid-template-rows: auto 1fr;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(248, 206, 206,0.5);
+  background-color: #ecf9ff;
   border-radius: 10px;
   grid-gap: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.logo-djezzy{
+.logo-djezzy {
   grid-row: 1;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -28,7 +28,7 @@
   align-items: center;
   justify-content: center;
 }
-.formLogin{
+.formLogin {
   width: 100%;
   height: 100%;
   grid-row: 2;
@@ -37,7 +37,7 @@
   justify-content: center;
   align-items: center;
 }
-form{
+form {
   width: 90%;
   height: 90%;
   display: flex;
@@ -45,37 +45,48 @@ form{
   align-items: center;
   gap: 10px;
 }
-form input{
+form input {
   outline: none;
-  border: none;
+  border: 1px solid rgb(183, 183, 183);
   height: 30px;
   padding-left: 8px;
-  border-radius: 4px;
-  width: auto;  
+  border-radius: 50px;
+  width: auto;
 }
-.field{
+.field {
   width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 2px;
-  label{
+  label {
     padding-left: 10px;
   }
 }
-.password-field{
+.password-field {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
   background-color: white;
   padding-right: 5px;
   border-radius: 4px;
+
+  border: 1px solid rgb(183, 183, 183);
+  border-radius: 50px;
+}
+.password-field input {
+  width: 100%;
+  height: 30px;
+  border-radius: 4px;
+  padding-left: 8px;
+  outline: none;
+  -webkit-text-security: disc;
 }
 /* --------------------------- */
 form button {
   width: 70%;
   color: white;
-  background-color: #a13c3c;
+  background-color: #241c85;
   border-radius: 4px;
   height: 30px;
   border: none;
@@ -96,4 +107,3 @@ small {
   color: #a13c3c;
   padding-top: 10px;
 }
-  

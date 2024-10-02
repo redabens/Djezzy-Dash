@@ -101,6 +101,7 @@
     width: 100%;
     grid-area: main-content;
     animation: width 0.5s ease-in;
+
     /* margin-left: 260px; Compense la largeur de la sidebar */
   }
 
