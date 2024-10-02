@@ -11,8 +11,8 @@
 }
 .Whitelogo {
   display: inline-block;
-  width: 4rem;
-  height: 4rem;
+  width: 3.5rem;
+  height: 3.5rem;
 }
 .WhiteNom {
   font-family: "Secular One", sans-serif;
@@ -20,11 +20,15 @@
   font-size: 15px;
   line-height: 18px;
   text-align: center;
-  color: black;
+  color: rgb(41, 41, 41);
 }
 #arabe {
   font-family: "Noto Sans Arabic", sans-serif;
   font-weight: 300;
   font-style: normal;
   font-variation-settings: "wdth" 100;
+}
+
+input[type="password"]::-ms-reveal {
+  display: none; /* Hide the eye icon in Microsoft Edge */
 }
