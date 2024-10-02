@@ -3,7 +3,8 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import LogoDjezzy from "../components/LogoDjezzy";
 import "../styles/Layout.css";
-import Dashboard from "./Dashboard";
+import { Outlet } from "react-router-dom";
+import { Graph1, Graph2 } from "../components/Graphs";
 
 export default function Layout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); // État pour contrôler l'ouverture/fermeture de la sidebar
@@ -60,6 +61,7 @@ export default function Layout() {
       >
         <Dashboard />
       </div>
+      <div className={`main-content ${isSidebarOpen ? "slide-in" : "slide-out"}`}><Graph1 /></div>
     </div>
   );
 }
