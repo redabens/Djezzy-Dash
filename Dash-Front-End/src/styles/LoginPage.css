@@ -1,37 +1,61 @@
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-.login-page{
-  width: 100vw;
+.login-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
+  width: 100vw;
+  background-color: rgba(209, 209, 234, 1);
+}
+
+.login-page {
+  width: 97vw;
+  height: 95vh;
+  border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
+  font-family: "Montserrat", sans-serif;
 }
-.login-form{
-  width: 25dvw;
-  height: 60dvh;
+.login-form {
+  width: 30dvw;
+  height: 70dvh;
   min-width: 290px;
   min-height: 305px;
   display: grid;
   grid-template-rows: auto 1fr;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(248, 206, 206,0.5);
-  /* background-color: rgba(209, 209, 234,1); */
-  border-radius: 10px;
+  background-color: white;
+  border-radius: 15px;
   grid-gap: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  background-color: rgba(209, 209, 234, 1);
 }
-.logo-djezzy{
+.login-form h2 {
+  font-size: 1.5em;
+  color: #2a2251;
+  font-weight: 700;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+.logo-djezzy {
   grid-row: 1;
   padding-top: 10px;
   padding-bottom: 10px;
+  position: absolute;
+  top: 10px;
+  left: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.formLogin{
+.formLogin {
   width: 100%;
   height: 100%;
   grid-row: 2;
@@ -39,55 +63,109 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 30px;
 }
-form{
+form {
   width: 90%;
   height: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 40px;
 }
-form input{
+.form-inputs {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+form input {
   outline: none;
   border: none;
   height: 30px;
-  padding-left: 8px;
-  border-radius: 4px;
+  font-family: "Montserrat", sans-serif;
 }
-.field{
-  width: 70%;
+.field {
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2px;
-  label{
+
+  gap: 6px;
+  label {
     padding-left: 10px;
+    font-size: 0.72em;
+    font-weight: 600;
+    color: rgb(72, 72, 72);
   }
 }
-.password-field{
+
+.username-input {
+  width: 100%;
+  height: 38px;
+  border-radius: 50px;
+  /* border: 1.4px solid #2a2251; */
+  box-shadow: 0 0 5px 1px rgba(196, 94, 196, 0.2);
+
+  font-size: 0.8em;
+  padding-left: 15px;
+  padding-right: 8px;
+  cursor: pointer;
+}
+.username-input:focus {
+  box-shadow: 0 0 5px 2px rgba(59, 1, 59, 0.4);
+}
+.username-input:hover {
+  box-shadow: 0 0 5px 2px rgba(59, 1, 59, 0.4);
+}
+.password-field {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
   background-color: white;
   padding-right: 5px;
   border-radius: 4px;
+  border-radius: 50px;
+  box-shadow: 0 0 5px 1px rgba(196, 94, 196, 0.2);
+  height: 38px;
+  padding-left: 15px;
+  padding-right: 10px;
+  cursor: pointer;
 }
-.imgP{
-  width: 22px;
-  height: 22px;
+.password-field:focus-within {
+  box-shadow: 0 0 5px 2px rgba(59, 1, 59, 0.4);
+}
+.password-field:hover {
+  box-shadow: 0 0 5px 2px rgba(59, 1, 59, 0.4);
+}
+.password-field input {
+}
+
+.imgP {
+  width: 20px;
+  height: 20px;
 }
 /* --------------------------- */
 form button {
-  width: 70%;
+  width: 80%;
   color: white;
-  background-color: #a13c3c;
-  border-radius: 4px;
-  height: 30px;
+  background-color: #2a2251;
+  border-radius: 50px;
+  height: 40px;
   border: none;
   font-family: "Montserrat", sans-serif !important;
   font-weight: 600;
+  cursor: pointer;
 }
+form button:active {
+  box-shadow: 0 0 7px 2px rgba(196, 94, 196, 0.7);
+}
+/* form button:hover {
+  box-shadow: 0 0 5px 2px rgba(59, 1, 59, 0.4);
+} */
+
 small {
   color: red;
   font-size: 0.7em;
@@ -97,9 +175,11 @@ small {
   flex-direction: row;
   justify-content: end;
   align-items: start;
-  font-size: 0.6em;
-  text-decoration: underline;
-  color: #a13c3c;
+  font-size: 0.7em;
+  color: #2a2251;
   padding-top: 10px;
+  cursor: pointer;
 }
-  
+.mdps-oublie p:hover {
+  text-shadow: 0 0 5px 2px rgba(59, 1, 59, 0.4);
+}
