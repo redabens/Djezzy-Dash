@@ -65,7 +65,8 @@ export default function LoginPage(){
                               placeholder="saisir le mot de passe..."
                               {...register("password", registerOptions.password)}
                             />
-                            {showPassword ? (<img src="/assets/oeilFerme.svg" alt="oeil_icon" style={{width:'22px',height:'22px'}} onClick={handleTooglePassword}/>):(<img src="/assets/oeilOuvert.svg" alt="oeil_icon" style={{width:'22px',height:'22px'}} onClick={handleTooglePassword}/>)}
+                            {showPassword ? (<img src="/assets/oeilFerme.svg" alt="oeil_icon" className="imgP" onClick={handleTooglePassword}/>)
+                            :(<img src="/assets/oeilOuvert.svg" alt="oeil_icon" className="imgP" onClick={handleTooglePassword}/>)}
                           </div>
                           <small className="text-danger">
                             {errors?.password && errors.password.message}
