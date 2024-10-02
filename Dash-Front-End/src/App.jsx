@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   createBrowserRouter,
   Route,
@@ -7,16 +6,16 @@ import {
 } from "react-router-dom";
 import Layout from './pages/Layout';
 import NotFound from './pages/NotFound';
-import './App.css';
 import Dashboard from './pages/Dashboard';
 import LoginPage from './pages/LoginPage';
+import './App.css';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/" element={<Layout/>}>
-        <Route path="dashboard/:name" element={<Dashboard/>} />
+        <Route path=":name" element={<Dashboard/>} />
       </Route>
       <Route path="*" element={<NotFound/>} />
     </Route>

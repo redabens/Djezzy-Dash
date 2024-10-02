@@ -8,9 +8,10 @@
     font-weight: 100;
     font-size: 0.85em;
     background-color: white;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding-left: 10px;
     padding-right: 30px;
+    border-radius: 10px;
 }
 .navbar-open{
     flex-direction: row;
@@ -34,6 +35,9 @@
 .navbarMenu{
     height: auto;
     width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 .pdp {
     width: 5vh;

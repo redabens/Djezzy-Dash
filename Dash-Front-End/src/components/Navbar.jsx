@@ -1,8 +1,9 @@
-import { useRef, useState } from "react";
-import PropTypes from 'prop-types';
+import { useEffect, useRef, useState } from "react";
+import PropTypes, { func } from 'prop-types';
+import LogoDjezzy from "../components/LogoDjezzy";
 import "../styles/Navbar.css";
 
-export default function Navbar({toogleSidebar,isSidebarOpen}) {
+export default function Navbar({toogleSidebar,isSidebarOpen,rotating}) {
   const navbarRef = useRef(null);
   const openClass = ()=>{
     // navbarRef.current.classList.remove("navbar-close");
@@ -41,6 +42,7 @@ export default function Navbar({toogleSidebar,isSidebarOpen}) {
                 alt="menu"
                 style={{ width: "3.6vh", height: "3.6vh" }}
               />
+              <LogoDjezzy rotating={rotating} />
         </div>
         <div className="navbarProfile">
           <h3 style={{ fontSize: "0.9em" }}>reda.bens</h3>

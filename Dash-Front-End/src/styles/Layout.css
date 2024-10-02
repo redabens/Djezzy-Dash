@@ -1,26 +1,59 @@
 .grid-container{
-    width: 100vw;
+    width: 100dvw;
+    height: 100dvh; /* Prend toute la hauteur de la fenêtre */
     display: grid;
-    grid-template-rows:7vh 1fr ;
-    gap: 0px 0px;
-    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    padding: 10px;
+    background-color: rgba(209, 209, 234,1);
 }
 .grid-open{
-  grid-template-columns: 210px 1fr;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
   grid-template-areas:
-    "sidebar header"
     "sidebar main-content"; /* Sidebar occupe toute la première colonne */
 }
 .grid-close{
-  grid-template-columns: 1fr; /* Plus de colonne pour la sidebar */
+  grid-template-columns: 100%; /* Plus de colonne pour la sidebar */
+  grid-template-rows: 100%;
+  grid-template-areas: "main-content"; /* Sidebar occupe toute la première colonne */
+}
+.sidebar {
+  /*partie grid layout */
+  grid-area: sidebar;
+  width: 210px;
+  height: 100%;
+  transform: translateX(0); /* Sidebar cachée par défaut */
+  transition: transform 0.5s ease-in; /* Pour animer la transition de contenu */
+  /*partie design sidebar*/
+  border-radius: 10px;
+  border: 2px solid #9e9ba6;
+  background-color: rgba(209, 209, 234,1);
+  padding: 10px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   grid-template-areas:
-    "header"
-    "main-content"; /* Sidebar occupe toute la première colonne */
+  "menubt"
+  "categories"
+  "fixed-categories";
+  -webkit-user-select: none; /* Pour les navigateurs WebKit (Chrome, Safari) */
+  -moz-user-select: none; /* Pour Firefox */
+  -ms-user-select: none; /* Pour Internet Explorer/Edge */
+  user-select: none; /* Empêche la sélection du texte */
+}
+.main-content {
+  width: 100%;
+  height: 100%;
+  grid-area: main-content;
+  display: grid;
+  grid-template-rows: 7vh 1fr;
+  animation: width 0.5s ease-in;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: white;
 }
 .header {
   width: 100%;
-  grid-area: header;
   background-color: #f8b400;
+  border-radius: 10px;
   -webkit-user-select: none; /* Pour les navigateurs WebKit (Chrome, Safari) */
   -moz-user-select: none; /* Pour Firefox */
   -ms-user-select: none; /* Pour Internet Explorer/Edge */
@@ -29,45 +62,20 @@
   border: none;
   animation: width 0.5s ease-in; /* Animation pour réduire la largeur de la sidebar */
 }
-.sidebar {
-  /*partie grid layout */
-  grid-area: sidebar;
-  width: 210px;
-  height: 100vh; /* Prend toute la hauteur du côté gauche */
-  position: fixed; /* Sidebar fixe */
-  top: 0;
-  left: 0;
-  -webkit-user-select: none; /* Pour les navigateurs WebKit (Chrome, Safari) */
-  -moz-user-select: none; /* Pour Firefox */
-  -ms-user-select: none; /* Pour Internet Explorer/Edge */
-  user-select: none; /* Empêche la sélection du texte */
-  transform: translateX(0); /* Sidebar cachée par défaut */
-  transition: transform 0.5s ease-in; /* Pour animer la transition de contenu */
-  /*partie design sidebar*/
-  border-top-right-radius: 10px;
-    background-color: #fff7f7;
-    padding-top: 1.35vh;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 1.35vh;
-    display: grid;
-    grid-template-rows: 5.655vh 1fr auto;
-    grid-template-areas:
-    "menubt"
-    "categories"
-    "fixed-categories";
+.content{
+  height: 100%;
 }
+
 .sidebar.slide-in {
   animation: slideIn 0.5s forwards; /* Animation pour faire apparaître la sidebar */
 }
-
 .sidebar.slide-out {
   animation: slideOut 0.5s forwards; /* Animation pour faire disparaître la sidebar */
 }
 @keyframes slideIn {
   0% {
     opacity: 0;
-    transform: translateX(-211px); /* Position initiale de la sidebar hors de l'écran */
+    transform: translateX(-210px); /* Position initiale de la sidebar hors de l'écran */
   }
   50%{
     opacity: 0.5;
@@ -88,38 +96,22 @@
   }
   100% {
     opacity: 0;
-    transform: translateX(-211px); /* Position finale de la sidebar hors de l'écran */
+    transform: translateX(-210px); /* Position finale de la sidebar hors de l'écran */
   }
 }
-  .LogoDjezzy {
-    position: absolute;
-    top: 0.85vh;
-    left: 55px;
-    z-index: 1;
-  }
-  .main-content {
-    width: 100%;
-    grid-area: main-content;
-    animation: width 0.5s ease-in;
-    /* margin-left: 260px; Compense la largeur de la sidebar */
-  }
 
 
-@media (max-width:650px){
-    .grid-container {
-        grid-template-columns: 1fr; /* Plus de colonne pour la sidebar */
-        grid-template-rows: auto 1fr;
-        grid-template-areas:
-          "header"
-          "main-content"; /* Plus de sidebar sur mobile */
-        height: auto;
-      }
-    
-      .sidebar {
-        display: none; /* Masquer la sidebar en mode mobile */
-      }
-    
-      .main-content {
-        margin-left: 0; /* Retire la marge */
-      }    
+@media (max-width:900px){
+  .grid-container {
+    width: 100dvw;
+    height: 100dvh; /* Prend toute la hauteur de la fenêtre */
+    grid-template-columns: 1fr; /* Plus de colonne pour la sidebar */
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "header"
+      "main-content"; /* Plus de sidebar sur mobile */
+  }
+  .sidebar {
+    display: none; /* Masquer la sidebar en mode mobile */
+  }  
 }
