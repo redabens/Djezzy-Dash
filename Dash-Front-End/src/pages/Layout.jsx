@@ -1,11 +1,12 @@
 import { useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+import axios from "axios";
 import "../styles/Layout.css";
 import { Outlet } from "react-router-dom";
 import { Graph1, Graph2 } from "../components/Graphs";
 
-export default function Layout() {
+function Layout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); // État pour contrôler l'ouverture/fermeture de la sidebar
   const [rotating, setRotating] = useState(false);
   const gridcontainerRef = useRef(null);
@@ -51,3 +52,14 @@ export default function Layout() {
     </div>
   );
 }
+
+const LayoutLoader = async ()=>{
+  const user = axios.get('http://localhost:5000/user',{
+    headers: {
+      'Authorization': localStorage.getItem('token'),
+    }
+  })
+  return (await user).data;
+}
+
+export { Layout, LayoutLoader };

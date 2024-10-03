@@ -5,6 +5,7 @@ import { useOutletContext, useNavigate } from "react-router-dom";
 import LogoLogin from "../components/LogoLogin";
 import "../styles/LoginPage.css";
 export default function LoginPage() {
+  const navigate = useNavigate();
   const [credentialsErr, setCredentialsErr] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const {
@@ -27,7 +28,21 @@ export default function LoginPage() {
       required: "Enrer le mot de passe",
     },
   };
-  const handleLogin = async () => {};
+  const handleLogin = async () => {
+    axios.post("http://localhost:5000/login",
+      {username:watch('username'),password:watch('password')})
+      .then((res) => {
+        if (res.status === 200) {
+          console.log(res.data)
+          localStorage.setItem("token", res.data.token);
+          navigate("/");
+        }
+      }).catch((error)=>{
+        if(error.response){
+          alert(error.response.data.message);
+        }
+      })
+  };
   const handleError = async () => {};
   const handleTooglePassword = () => {
     setShowPassword(!showPassword);

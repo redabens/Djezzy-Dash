@@ -4,7 +4,7 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
-import Layout from './pages/Layout';
+import {Layout,LayoutLoader} from './pages/Layout';
 import NotFound from './pages/NotFound';
 import Dashboard from './pages/Dashboard';
 import LoginPage from './pages/LoginPage';
@@ -14,7 +14,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/" element={<Layout/>}>
+      <Route path="/" element={<Layout/>} loader={LayoutLoader}>
         <Route path=":name" element={<Dashboard/>} />
       </Route>
       <Route path="*" element={<NotFound/>} />
