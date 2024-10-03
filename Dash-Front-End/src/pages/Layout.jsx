@@ -3,10 +3,15 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import axios from "axios";
 import "../styles/Layout.css";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Graph1, Graph2 } from "../components/Graphs";
 
+const token = localStorage.getItem('token')
 function Layout() {
+  const navigate = useNavigate();
+  if(token === null){
+    navigate("/login");
+  }
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); // État pour contrôler l'ouverture/fermeture de la sidebar
   const [rotating, setRotating] = useState(false);
   const gridcontainerRef = useRef(null);
@@ -56,7 +61,7 @@ function Layout() {
 const LayoutLoader = async ()=>{
   const user = axios.get('http://localhost:5000/user',{
     headers: {
-      'Authorization': localStorage.getItem('token'),
+      'Authorization': token,
     }
   })
   return (await user).data;
