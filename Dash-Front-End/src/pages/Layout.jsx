@@ -1,16 +1,16 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import axios from "axios";
 import "../styles/Layout.css";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { Graph1, Graph2 } from "../components/Graphs";
+import { func } from "prop-types";
 
-const token = sessionStorage.getItem('token')
-function Layout() {
-  const navigate = useNavigate();
-  if(token === null){
-    navigate("/login");
+export default function Layout(){
+  const token = sessionStorage.getItem('token');
+  if(!token){
+    return <Navigate to='/login'/>
   }
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); // État pour contrôler l'ouverture/fermeture de la sidebar
   const [rotating, setRotating] = useState(false);
@@ -40,7 +40,7 @@ function Layout() {
     handleRotateLogo();
     setIsSidebarOpen(!isSidebarOpen);
   };
-
+  
   return (
     <div ref={gridcontainerRef} className={`grid-container ${isSidebarOpen ? "grid-open" : "grid-close"}`}>
       <div className={`sidebar ${isSidebarOpen ? "slide-in" : "slide-out"}`} >
@@ -57,14 +57,3 @@ function Layout() {
     </div>
   );
 }
-
-const LayoutLoader = async ()=>{
-  const user = axios.get('http://localhost:5000/user',{
-    headers: {
-      'Authorization': token,
-    }
-  })
-  return (await user).data;
-}
-
-export { Layout, LayoutLoader };

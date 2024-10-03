@@ -27,7 +27,7 @@ def login():
         return {'message':'Erreur serveur LDAP'}, 500
     
 # Route protégée pour obtenir les informations de l'utilisateur
-@app.route('/user', methods=['GET'])
+@app.route('/user')
 @verify_token  # Applique le décorateur de vérification du token
 def get_user():
     # Ici, tu peux récupérer les informations de l'utilisateur
