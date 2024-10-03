@@ -6,7 +6,7 @@ import "../styles/Layout.css";
 import { Outlet, useNavigate } from "react-router-dom";
 import { Graph1, Graph2 } from "../components/Graphs";
 
-const token = localStorage.getItem('token')
+const token = sessionStorage.getItem('token')
 function Layout() {
   const navigate = useNavigate();
   if(token === null){

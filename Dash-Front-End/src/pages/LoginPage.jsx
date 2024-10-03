@@ -34,7 +34,7 @@ export default function LoginPage() {
       .then((res) => {
         if (res.status === 200) {
           console.log(res.data)
-          localStorage.setItem("token", res.data.token);
+          sessionStorage.setItem("token", res.data.token);
           navigate("/");
         }
       }).catch((error)=>{
