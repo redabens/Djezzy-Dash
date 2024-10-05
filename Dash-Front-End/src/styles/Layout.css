@@ -19,8 +19,9 @@
 .sidebar {
   /*partie grid layout */
   grid-area: sidebar;
-  width: 210px;
-  height: 100%;
+  width: 15lvw;
+  height: calc(100vh - 20px);
+  min-width:195px;
   transform: translateX(0); /* Sidebar cachée par défaut */
   transition: transform 0.5s ease-in; /* Pour animer la transition de contenu */
   /*partie design sidebar*/
@@ -49,9 +50,14 @@
   border-radius: 10px;
   padding: 10px;
   background-color: white;
+  grid-template-areas:
+  "header"
+  "content";
 }
 .header {
+  grid-area: header;
   width: 100%;
+  height: 100%;
   background-color: #f8b400;
   border-radius: 10px;
   -webkit-user-select: none; /* Pour les navigateurs WebKit (Chrome, Safari) */
@@ -63,7 +69,13 @@
   animation: width 0.5s ease-in; /* Animation pour réduire la largeur de la sidebar */
 }
 .content{
-  height: 100%;
+  grid-area: content;
+  width: 100%;
+  height: calc(100vh - 7vh - 40px);
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth; /* Ajoute un scrolling fluide */
+  padding: 20px;
 }
 
 .sidebar.slide-in {

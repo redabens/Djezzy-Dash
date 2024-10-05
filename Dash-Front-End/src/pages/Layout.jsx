@@ -9,11 +9,13 @@ import { func } from "prop-types";
 
 export default function Layout(){
   const token = sessionStorage.getItem('token');
+  console.log(token);
   if(!token){
     return <Navigate to='/login'/>
   }
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); // État pour contrôler l'ouverture/fermeture de la sidebar
   const [rotating, setRotating] = useState(false);
+  const [user, setUser] = useState({}); // État pour stocker les données re
   const gridcontainerRef = useRef(null);
 
   const openClass = () => {
@@ -40,15 +42,36 @@ export default function Layout(){
     handleRotateLogo();
     setIsSidebarOpen(!isSidebarOpen);
   };
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/user', {
+          headers: {
+            'Authorization': token,
+          }
+        });
+        if (response.status === 200) {
+          console.log(response.data.user);
+          setUser(response.data.user);
+        }
+      } catch (error) {
+        if (error.response) {
+          alert(error.response.data.message);
+        }
+      }
+    };
+  
+    fetchUser();
+  },[]);
   
   return (
     <div ref={gridcontainerRef} className={`grid-container ${isSidebarOpen ? "grid-open" : "grid-close"}`}>
       <div className={`sidebar ${isSidebarOpen ? "slide-in" : "slide-out"}`} >
-        <Sidebar isSidebarOpen={isSidebarOpen} toogleSidebar={handleSidebarToggle} rotating={rotating}/>
+        <Sidebar isSidebarOpen={isSidebarOpen} toogleSidebar={handleSidebarToggle} rotating={rotating} user={user}/>
       </div>
       <div className={`main-content ${isSidebarOpen ? "slide-in" : "slide-out"}`}>
         <div className="header">
-          <Navbar isSidebarOpen={isSidebarOpen} toogleSidebar={handleSidebarToggle} rotating={rotating}/>
+          <Navbar isSidebarOpen={isSidebarOpen} toogleSidebar={handleSidebarToggle} rotating={rotating} user={user}/>
         </div>
         <div className="content">
           <Outlet />

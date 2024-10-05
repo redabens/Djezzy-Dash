@@ -29,7 +29,7 @@ export default function LoginPage() {
     },
   };
   const handleLogin = async () => {
-    axios.post("http://localhost:5000/login",
+    axios.post("http://localhost:3000/login",
       {username:watch('username'),password:watch('password')})
       .then((res) => {
         if (res.status === 200) {

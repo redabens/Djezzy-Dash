@@ -4,7 +4,7 @@ function Graph1() {
       <div>
         <h2>Graphique 1</h2>
         <iframe
-          src="http://localhost:5000/graph1/"
+          src="http://localhost:3000/graph1/"
           style={{ width: '100%', height: '550px', border: 'none' }}
           title="Graph 1"
         />
@@ -17,7 +17,7 @@ function Graph1() {
       <div>
         <h2>Graphique 2</h2>
         <iframe
-          src="http://localhost:5000/graph2/"
+          src="http://localhost:3000/graph2/"
           style={{ width: '100%', height: '500px', border: 'none' }}
           title="Graph 2"
         />
@@ -30,7 +30,7 @@ function Graph1() {
       <div>
         <h2>Graphique 3</h2>
         <iframe
-          src="http://localhost:5000/graph3/"
+          src="http://localhost:3000/graph3/"
           style={{ width: '100%', height: '500px', border: 'none' }}
           title="Graph 3"
         />

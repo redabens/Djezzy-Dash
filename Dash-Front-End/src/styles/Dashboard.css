@@ -1,0 +1,12 @@
+.dashes{
+    scroll-snap-align: start;
+    height: calc(100vh - 7vh - 40px);
+    width: 100%;
+}
+iframe{
+    width: 100%;
+    height: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+}

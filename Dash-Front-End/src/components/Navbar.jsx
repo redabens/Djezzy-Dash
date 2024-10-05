@@ -3,7 +3,7 @@ import PropTypes, { func } from 'prop-types';
 import LogoDjezzy from "../components/LogoDjezzy";
 import "../styles/Navbar.css";
 
-export default function Navbar({toogleSidebar,isSidebarOpen,rotating}) {
+export default function Navbar({toogleSidebar,isSidebarOpen,rotating,user}) {
   const navbarRef = useRef(null);
   const openClass = ()=>{
     // navbarRef.current.classList.remove("navbar-close");
@@ -40,7 +40,7 @@ export default function Navbar({toogleSidebar,isSidebarOpen,rotating}) {
               <img
                 src="/assets/Menu.svg"
                 alt="menu"
-                style={{ width: "3.6vh", height: "3.6vh" }}
+                style={{ width: "20px", height: "20px" }}
               />
               <LogoDjezzy rotating={rotating} />
         </div>
@@ -63,4 +63,6 @@ export default function Navbar({toogleSidebar,isSidebarOpen,rotating}) {
 Navbar.propTypes = {
   toogleSidebar: PropTypes.func.isRequired,
   isSidebarOpen: PropTypes.bool.isRequired,
+  rotating: PropTypes.bool.isRequired,
+  user: PropTypes.object.isRequired
 };

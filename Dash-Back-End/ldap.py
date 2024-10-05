@@ -1,11 +1,11 @@
 from ldap3 import Server, Connection, ALL, NTLM
 
 # Configuration du serveur LDAP
-LDAP_SERVER = "ldap://localhost:389" #"ldap://192.168.1.66:389"
+LDAP_SERVER = "ldap://192.168.1.66:389" #"ldap://192.168.1.66:389"
 LDAP_BASE_DN = 'dc=djezzy-collab,dc=com'
 LDAP_USER_DN = "ou=users,dc=djezzy-collab,dc=com"  # DN utilisateur, basé sur le schéma LDAP
 LDAP_BIND_USER = "cn=admin,dc=djezzy-collab,dc=com"   # Utilisateur d'administration pour effectuer les requêtes
-LDAP_BIND_PASSWORD = "sara2004" #'Redabens2004..'  Mot de passe du bind user
+LDAP_BIND_PASSWORD = "Redabens2004.." #'sara2004'  Mot de passe du bind user
 
 def authenticate(username, password):
     # Connexion au serveur LDAP

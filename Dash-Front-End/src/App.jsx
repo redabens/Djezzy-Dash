@@ -15,7 +15,7 @@ const router = createBrowserRouter(
     <Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/" element={<Layout/>} >
-        <Route path=":name" element={<Dashboard/>} />
+        <Route path="/:name" element={<Dashboard/>} />
       </Route>
       <Route path="*" element={<NotFound/>} />
     </Route>
@@ -31,4 +31,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
